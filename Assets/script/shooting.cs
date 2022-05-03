@@ -5,6 +5,9 @@ using UnityEngine;
 public class shooting : MonoBehaviour
 {
     public GameObject playerBullet;
+    public Transform spawnPointRight;
+    public Transform spawnPointLeft;
+
     // Start is called before the first frame update
     void Start()
     {
