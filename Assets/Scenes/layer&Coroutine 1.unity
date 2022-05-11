@@ -478,6 +478,7 @@ MonoBehaviour:
     type: 3}
   spawnPointRight: {fileID: 1203016004}
   spawnPointLeft: {fileID: 376365488}
+  bulletSpawnTime: 0.5
 --- !u!1 &1137215326
 GameObject:
   m_ObjectHideFlags: 0

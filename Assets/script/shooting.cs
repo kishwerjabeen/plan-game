@@ -7,20 +7,41 @@ public class shooting : MonoBehaviour
     public GameObject playerBullet;
     public Transform spawnPointRight;
     public Transform spawnPointLeft;
+    public float bulletSpawnTime = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(Shoot());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+       
         {
             // Quaternion.identity use when we dont wont to change position 
-            Instantiate(playerBullet, transform.position, Quaternion.identity);
+           
         }
+    }
+    void Fire()
+    {
+        Instantiate(playerBullet, spawnPointRight.position, Quaternion.identity);
+        Instantiate(playerBullet, spawnPointLeft.position, Quaternion.identity);
+    }
+
+   IEnumerator Shoot()
+    {
+        //yield return new WaitForSeconds(bulletSpawnTime);
+        //Fire();
+        //StartCoroutine(Shoot());
+        while (true)
+        {
+            yield return new WaitForSeconds(bulletSpawnTime);
+            Fire();
+        }
+
+
+
     }
 }
