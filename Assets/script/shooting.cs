@@ -8,13 +8,14 @@ public class shooting : MonoBehaviour
     public Transform spawnPointRight;
     public Transform spawnPointLeft;
     public float bulletSpawnTime = 1f;
+    public GameObject flash;
 
     // Start is called before the first frame update
     void Start()
     {
+        flash.SetActive(false);
         StartCoroutine(Shoot());
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -39,6 +40,10 @@ public class shooting : MonoBehaviour
         {
             yield return new WaitForSeconds(bulletSpawnTime);
             Fire();
+            flash.SetActive(true);
+            yield return new WaitForSeconds(0.08f);
+            flash.SetActive(false);
+
         }
 
 
